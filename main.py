@@ -6,7 +6,7 @@ from PyQt5.QtGui import QPainter, QColor
 import random
 from UI import Ui_Form
 
-class MyWidget(QMainWindow, Ui_MainWindow):
+class MyWidget(QMainWindow, Ui_Form):
     def __init__(self):
         super().__init__()
         # Вызываем метод для загрузки интерфейса из класса Ui_MainWindow,
@@ -33,10 +33,11 @@ class MyWidget(QMainWindow, Ui_MainWindow):
 
     def draw_flag(self, qp):
         # Задаем кисть
-        qp.setBrush(QColor(255, 255, 0))
         # Рисуем прямоугольник заданной кистью
 
         for i in range(random.randint(1, 20)):
+            qp.setBrush(
+                QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)))
             h = random.randint(10, 500)
             qp.drawEllipse(random.randint(10, 800), random.randint(10, 800), h, h)
 
